@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h2>Please enter the photo :</h2>
+    <hr />
+    <form action="/posts" method="POST" enctype="multipart/form-data">
+      input: <input type="text" name="mind" id="la" />
+      <br />
+      name: <input type="file" name="mm" id="kk" />
+      <br />
+      <input type="submit" />
+    </form>
+    <h1>{{ data }}</h1>
+    {% set filename = data.image_name %} {%if filename: %}
+    <h1>{{ filename }}</h1>
+    {# the above line is print IMG_0036.JPG #}
+    <img src="{{url_for('static', filename= filename )}}" /> {# that`s not,WHY
+    !?#} {% endif %}
+    <h1>caption:</h1>
+    <h2>{{ data.caption }}</h2>
+  </body>
+</html>
