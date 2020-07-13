@@ -18,6 +18,7 @@
       <br />
       <input type="submit" />
     </form>
+    {% if data: %}
     <h1>{{ data }}</h1>
     {% set filename = data.image_name %} {%if filename: %}
     <h1>{{ filename }}</h1>
@@ -26,5 +27,6 @@
     !?#} {% endif %}
     <h1>caption:</h1>
     <h2>{{ data.caption }}</h2>
+    {% endif %}
   </body>
 </html>
