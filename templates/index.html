@@ -6,27 +6,51 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <h2>Please enter the photo :</h2>
+    <nav class="navbar navbar-expand-lg navbar-light text-white">
+      <a
+        class="navbar-brand"
+        href="https://mymachinelearningportofolio.herokuapp.com/gabry"
+        >Gabry</a
+      >
+    </nav>
+    <h1 class="text-center">Hi, I’m Gabry. Nice to meet you.</h1>
+    <hr>
+    <h3 class="text-center" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">that`s an online demo for image captioing.please upload an image</h3>
+    <h3 class="text-center" 
+    style = "font-family:georgia,garamond,serif;font-size:12px;font-style:italic;">
+    *the dataset contains a lot of dogs and humans,so it`s suggested to upload image contain them.</h3>
+
+    <div class="row">
+      <div class="col-md-4 col-lg-4 col-xl-4 mx-auto text-center">
+        <form action="/" method="POST" enctype="multipart/form-data" class="mt-2">
+          Image: <input type="file" name="mm" id="kk" required/>
+          <br />
+          <input type="submit" class="mt-3 text-primary"/>
+        </form>
+      </div>
+    </div>
+    <script src="main.js"></script>
     <hr />
-    <form action="/" method="POST" enctype="multipart/form-data">
-      input: <input type="text" name="mind" id="la" />
-      <br />
-      name: <input type="file" name="mm" id="kk" />
-      <br />
-      <input type="submit" />
-    </form>
-    {% if data: %}
-    <h1>{{ data }}</h1>
-    {% set filename = data.image_name %} {%if filename: %}
-    <h1>{{ filename }}</h1>
+    {% if data: %} {% set filename = data.image_name %}
     {# the above line is print IMG_0036.JPG #}
-    <img src="{{url_for('static', filename= filename )}}" /> {# that`s not,WHY
-    !?#} {% endif %}
-    <h1>caption:</h1>
-    <h2>{{ data.caption }}</h2>
+    <div class="text-center">
+      <img src="{{url_for('static', filename= filename )}}" width="400" height="400"/>
+      <h3>caption:</h3>
+      <h4>{{ data.caption }}</h2>
+      <h3 class="text-center mt-4" 
+      style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;" class="mt-5">
+      the model performance can increase a lot by doing more trainig in gpu.</h3>
+      <h3 class="text-center" style = "font-family:georgia,garamond,serif;font-size:16px;font-style:italic;">
+        My Email : gabryjabry@gmail.com </h3>
+    </div>
     {% endif %}
   </body>
 </html>
