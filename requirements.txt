@@ -9,6 +9,6 @@ scipy>=1.4.1
 matplotlib>=1.4.3
 pandas>=0.19
 setuptools
-tensorflow
+tensorflow-cpu
 pillow
 
