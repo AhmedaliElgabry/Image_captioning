@@ -87,7 +87,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-@app.route('/posts',methods = ['GET','POST'])
+@app.route('/',methods = ['GET','POST'])
 def home():
     post2 = 'ahmed'
     if request.method == 'POST':
